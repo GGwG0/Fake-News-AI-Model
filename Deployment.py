@@ -3,10 +3,9 @@
 
 # In[ ]:
 
-import nltk
+
 nltk.download('stopwords')
 
-import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk import pos_tag
