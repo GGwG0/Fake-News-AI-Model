@@ -21,14 +21,14 @@ from nltk import pos_tag
 from nltk.tokenize import word_tokenize
 
 st.markdown(
-    """
+ 
     <style>
     body {
         background-image: url("C:\Users\HP\Downloads\fakenews.png");
         background-size: cover;
     }
     </style>
-    """,
+ ,
     unsafe_allow_html=True
 )
 
