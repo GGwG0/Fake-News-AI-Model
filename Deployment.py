@@ -3,6 +3,8 @@
 
 # In[ ]:
 
+import nltk
+nltk.download('stopwords')
 from nltk.corpos import stopwords
 
 def preprocess(article):
