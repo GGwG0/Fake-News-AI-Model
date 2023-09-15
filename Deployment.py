@@ -3,13 +3,13 @@
 
 # In[ ]:
 
-import streamlit as st
+
 
 import nltk
 import numpy 
 import joblib
 
-
+nltk.download('punkt')
 
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
