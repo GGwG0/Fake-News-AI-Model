@@ -77,10 +77,11 @@ count_vectorizer = joblib.load('vectorizer(final).pkl')
 
 #Apply the preprocessing function to the 'text' column
 if st.button("Predict"): 
-processed_article = preprocess(article)
-processed_articles = ' '.join(processed_article)
-new_article_vectorized_count = count_vectorizer.transform([processed_articles])
-prediction = model.predict(new_article_vectorized_count)
+    
+  processed_article = preprocess(article)
+  processed_articles = ' '.join(processed_article)
+  new_article_vectorized_count = count_vectorizer.transform([processed_articles])
+  prediction = model.predict(new_article_vectorized_count)
 
 if prediction[0] == 1:
     print("The article is predicted as fake.")
