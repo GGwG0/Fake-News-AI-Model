@@ -69,23 +69,20 @@ if st.button("Predict", key="predict_button"):
     prediction = model.predict(new_article_vectorized_count)
 
     # Display the prediction
-    if prediction[0] == 1:
-        st.success("📢 The article is predicted as fake.")
-    else:
-        st.success("📰 The article is predicted as true.")
+   # Display the prediction
+if prediction[0] == 1:
+    st.markdown(
+        """
+        <div style="background-color: #FF5733; padding: 10px; border-radius: 5px;">
+        <span style="color: white; font-weight: bold;">📢 The article is predicted as fake.</span>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.success("📰 The article is predicted as true.")
+
 
 # Footer
 st.markdown("---")
 st.markdown("Created by ❤️ Tan Yen Yee  & Sharan ")
-
-# Add a classy background color
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #3d2f91;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
