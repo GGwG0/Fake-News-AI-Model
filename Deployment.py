@@ -85,9 +85,9 @@ if st.button("Predict"):
   new_article_vectorized_count = count_vectorizer.transform([processed_articles])
   prediction = model.predict(new_article_vectorized_count)
 
-if prediction[0] == 1:
+  if prediction[0] == 1:
     print("The article is predicted as fake.")
-else:
+  else:
     print("The article is predicted as true.")
     
 #20848 - svm cannot, naive can
