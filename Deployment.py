@@ -68,7 +68,7 @@ article = st.text_area("Enter your article:")
 # print("2. Naive Bayes")
 # training = input("Choose one of the training method: ")
 
-st.print("\nIt is detecting ...")
+st.write("\nIt is detecting ...")
 
 # if training == "1":    
 model = joblib.load('custom_svm_model(final).pkl')
@@ -89,9 +89,9 @@ if st.button("Predict"):
   prediction = model.predict(new_article_vectorized_count)
 
   if prediction[0] == 1:
-    print("The article is predicted as fake.")
+    st.write("The article is predicted as fake.")
   else:
-    print("The article is predicted as true.")
+    st.write("The article is predicted as true.")
     
 #20848 - svm cannot, naive can
 #16405 - fake
