@@ -24,7 +24,7 @@ st.markdown(
     """
     <style>
     body {
-        background-image: url("fakenews.jpg");
+        background-image: url("fakenews.png");
         background-size: cover;
     }
     </style>
