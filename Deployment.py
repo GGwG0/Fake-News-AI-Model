@@ -20,7 +20,27 @@ from nltk.stem import WordNetLemmatizer
 from nltk import pos_tag
 from nltk.tokenize import word_tokenize
 
+st.markdown(
+    """
+    <style>
+    body {
+        background-image: url("fakenews.jpg");
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
+
+
 lemmatizer = WordNetLemmatizer()
+
+
+
+
 
 # Function to lemmatize and provide POS tags
 def lemmatize_with_pos(text):
