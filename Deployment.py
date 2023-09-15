@@ -3,15 +3,8 @@
 
 # In[ ]:
 
-import streamlit as st
-import pickle
-
-
-nltk.download('stopwords')
-
+import nltk
 from nltk.corpos import stopwords
-
-
 
 def preprocess(article):
     stop_words = set(stopwords.words('english'))
