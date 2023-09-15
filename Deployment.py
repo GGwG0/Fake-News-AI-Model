@@ -55,7 +55,7 @@ from sklearn.metrics import classification_report
 import joblib
 
 print("Test our fake news detection now!")
-article = st.text_area("Enter your article:", "")
+article = st.text_area("Enter your article:")
 
 
 # print("\nThere are 2 types of training method:")
