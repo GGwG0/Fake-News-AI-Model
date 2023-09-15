@@ -2,15 +2,41 @@
 # coding: utf-8
 
 # In[ ]:
+
 import nltk
 nltk.download('stopwords')
 
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk import pos_tag
+from nltk.tokenize import word_tokenize
+
+lemmatizer = WordNetLemmatizer()
+
+# Function to lemmatize and provide POS tags
+def lemmatize_with_pos(text):
+    # Get POS tags for the words
+    pos_tags = pos_tag(text)
+    # Lemmatize using POS tags
+    lemmatized_words = [lemmatizer.lemmatize(word, pos=get_wordnet_pos(tag)) for word, tag in pos_tags]
+    return lemmatized_words
+
+# Function to map POS tags to WordNet POS tags
+def get_wordnet_pos(tag):
+    tag = tag[0].upper()
+    tag_dict = {"J": nltk.corpus.wordnet.ADJ,
+                "N": nltk.corpus.wordnet.NOUN,
+                "V": nltk.corpus.wordnet.VERB,
+                "R": nltk.corpus.wordnet.ADV}
+    return tag_dict.get(tag, nltk.corpus.wordnet.NOUN)  # Default to noun if not found
+
 def preprocess(article):
-    stop_words = set(stopwords.words('english'))
+    stop_word = set(stopwords.words('english'))
     processed_data = []  # Initialize an empty list
     preprocess_document = word_tokenize(article)
     preprocess_document = [token.lower() for token in preprocess_document if token.isalnum()]
-    preprocess_document = [token for token in preprocess_document if token not in stop_words]
+    preprocess_document = [token for token in preprocess_document if token not in stop_word]
     preprocess_document = lemmatize_with_pos(preprocess_document)
     return preprocess_document
 
