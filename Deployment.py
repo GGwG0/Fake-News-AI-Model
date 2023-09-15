@@ -2,10 +2,11 @@
 # coding: utf-8
 
 # In[ ]:
-pip freeze > requirements.txt
 
 import nltk
+
 nltk.download('stopwords')
+
 from nltk.corpos import stopwords
 
 
