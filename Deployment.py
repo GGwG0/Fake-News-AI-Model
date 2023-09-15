@@ -68,8 +68,7 @@ article = st.text_area("Enter your article:")
 # print("2. Naive Bayes")
 # training = input("Choose one of the training method: ")
 
-if st.button("Predict"):
- st.write("\nIt is detecting ...")
+
 
 # if training == "1":    
 model = joblib.load('custom_svm_model(final).pkl')
@@ -82,7 +81,8 @@ count_vectorizer = joblib.load('vectorizer(final).pkl')
 
 
 #Apply the preprocessing function to the 'text' column
-
+if st.button("Predict"):
+  st.write("\nIt is detecting ...")
     
   processed_article = preprocess(article)
   processed_articles = ' '.join(processed_article)
