@@ -69,7 +69,7 @@ article = st.text_area("Enter your article:")
 # training = input("Choose one of the training method: ")
 
 if st.button("Predict"):
-  st.write("\nIt is detecting ...")
+ st.write("\nIt is detecting ...")
 
 # if training == "1":    
 model = joblib.load('custom_svm_model(final).pkl')
