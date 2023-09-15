@@ -5,7 +5,7 @@
 
 
 
-from nltk.curpos import stopwords
+from nltk.corpos import stopwords
 nltk.download('stopwords')
 
 def preprocess(article):
