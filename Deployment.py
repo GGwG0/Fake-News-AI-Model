@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # In[ ]:
-
+import nltk
 nltk.download('stopwords')
 from nltk.corpos import stopwords
 
