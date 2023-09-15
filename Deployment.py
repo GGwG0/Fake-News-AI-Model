@@ -5,7 +5,7 @@
 
 import nltk
 nltk.download('stopwords')
-from nltk.corpos import stopwords
+
 
 def preprocess(article):
     stop_words = set(stopwords.words('english'))
