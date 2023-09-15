@@ -9,6 +9,7 @@ import nltk
 import numpy 
 import joblib
 nltk.download('stopwords')
+ nltk.download('punkt')
 
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
