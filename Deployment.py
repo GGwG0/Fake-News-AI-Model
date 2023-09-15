@@ -55,7 +55,7 @@ st.markdown("**Enter an article to predict whether it's fake or true.**")
 # Text input area
 article = st.text_area("Article Text", "", height=200)
 
-training = st.radio("Select a training method:", ["SVM", "Naive Bayes"])
+training = st.selectbox("Select a training method:", ["SVM", "Naive Bayes"])
 
 # Predict button
 if st.button("Predict", key="predict_button"):
