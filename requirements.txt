@@ -7,4 +7,3 @@ seaborn
 regex
 joblib
 
-pip install -r requirements.txt
