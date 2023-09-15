@@ -3,7 +3,7 @@
 
 # In[ ]:
 
-
+import nltk
 
 from nltk.corpos import stopwords
 nltk.download('stopwords')
