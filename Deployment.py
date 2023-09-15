@@ -82,7 +82,7 @@ count_vectorizer = joblib.load('vectorizer(final).pkl')
 
 
 #Apply the preprocessing function to the 'text' column
-if st.button("Predict"): 
+
     
   processed_article = preprocess(article)
   processed_articles = ' '.join(processed_article)
