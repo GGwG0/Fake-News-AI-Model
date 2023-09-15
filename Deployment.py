@@ -3,8 +3,8 @@
 
 # In[ ]:
 
+from nltk.downalod(stopword)
 
-from nltk.corpus import stopwords
 def preprocess(article):
     stop_words = set(stopwords.words('english'))
     processed_data = []  # Initialize an empty list
