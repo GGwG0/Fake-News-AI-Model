@@ -49,6 +49,7 @@ count_vectorizer = joblib.load('vectorizer(final).pkl')
 st.set_page_config(page_title="Fake News Detection", page_icon="📰", layout="centered", initial_sidebar_state="collapsed")
 
 # Stylish header
+st.image("fakenews.png", caption="Fake News", use_column_width=True)
 st.title("Fake News Detection")
 st.markdown("**Enter an article to predict whether it's fake or true.**")
 
