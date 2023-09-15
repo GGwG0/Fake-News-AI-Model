@@ -69,13 +69,11 @@ if st.button("Predict", key="predict_button"):
     prediction = model.predict(new_article_vectorized_count)
 
     # Display the prediction
-   # Display the prediction
- if prediction[0] == 1:
-    st.success("📢 The article is predicted as fake.")
- else:
-   st.success("📰 The article is predicted as true.")
-
+    if prediction[0] == 1:
+        st.success("📢 The article is predicted as fake.")
+    else:
+        st.success("📰 The article is predicted as true.")
 
 # Footer
 st.markdown("---")
-st.markdown("Created by ❤️ Tan Yen Yee  & Sharan ")
+st.markdown("Created with ❤️ by Your Name")
