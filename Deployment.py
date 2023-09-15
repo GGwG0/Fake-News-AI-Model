@@ -3,7 +3,7 @@
 
 # In[ ]:
 
-!pip install nltk 
+pip install nltk 
 import nltk
 
 from nltk.corpos import stopwords
