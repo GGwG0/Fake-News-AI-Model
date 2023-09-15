@@ -68,7 +68,8 @@ article = st.text_area("Enter your article:")
 # print("2. Naive Bayes")
 # training = input("Choose one of the training method: ")
 
-st.write("\nIt is detecting ...")
+if st.button("Predict"):
+  st.write("\nIt is detecting ...")
 
 # if training == "1":    
 model = joblib.load('custom_svm_model(final).pkl')
