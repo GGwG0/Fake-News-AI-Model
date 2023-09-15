@@ -2,6 +2,8 @@
 # coding: utf-8
 
 # In[ ]:
+pip install nltk
+
 import nltk
 nltk.download('stopwords')
 from nltk.corpos import stopwords
