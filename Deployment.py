@@ -76,4 +76,4 @@ if st.button("Predict", key="predict_button"):
 
 # Footer
 st.markdown("---")
-st.markdown("Created with ❤️ by Your Name")
+st.markdown("Created by ❤️ by YenYee & Sharan")
