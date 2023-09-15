@@ -4,6 +4,8 @@
 # In[ ]:
 
 import nltk
+import numpy 
+import joblib
 nltk.download('stopwords')
 
 from nltk.corpus import stopwords
@@ -38,6 +40,7 @@ def preprocess(article):
     preprocess_document = [token for token in preprocess_document if token not in stop_word]
     preprocess_document = lemmatize_with_pos(preprocess_document)
     return preprocess_document
+
 
 
 # In[ ]:
