@@ -3,7 +3,7 @@
 
 # In[ ]:
 
-from nltk.download import stopwords
+from nltk.curpos import stopwords
 
 def preprocess(article):
     stop_words = set(stopwords.words('english'))
