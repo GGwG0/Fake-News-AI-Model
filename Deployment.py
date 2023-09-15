@@ -21,7 +21,7 @@ from nltk import pos_tag
 from nltk.tokenize import word_tokenize
 
 st.markdown(
-     """
+     r"""
     <style>
     body {
         background-image: url("C:\Users\HP\Downloads\fakenews.png");
