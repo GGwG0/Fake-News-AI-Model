@@ -3,7 +3,7 @@
 
 # In[ ]:
 
-from nltk.downalod(stopword)
+from nltk.downalod import stopwords
 
 def preprocess(article):
     stop_words = set(stopwords.words('english'))
