@@ -83,7 +83,6 @@ st.markdown(
     """
     <style>
     body {
-        background-image: url("C:\Users\HP\Downloads\fakenews.png");
         background-color: #3d2f91;
     }
     </style>
