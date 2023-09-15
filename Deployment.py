@@ -12,6 +12,7 @@ import joblib
 nltk.download("punkt")
 nltk.download("wordnet")
 nltk.download("stopwords")
+nltk.download('averaged_perceptron_tagger')
 
 
 from nltk.corpus import stopwords
