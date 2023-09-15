@@ -71,14 +71,7 @@ if st.button("Predict", key="predict_button"):
     # Display the prediction
    # Display the prediction
 if prediction[0] == 1:
-    st.markdown(
-        """
-        <div style="background-color: #FF5733; padding: 10px; border-radius: 5px;">
-        <span style="color: white; font-weight: bold;">📢 The article is predicted as fake.</span>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+     st.success("📰 The article is predicted as fake.")
 else:
     st.success("📰 The article is predicted as true.")
 
