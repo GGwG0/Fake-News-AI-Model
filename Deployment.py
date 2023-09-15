@@ -1,46 +1,20 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
 import streamlit as st
-
 import nltk
-import numpy 
 import joblib
 
+# Download NLTK data
 nltk.download("punkt")
 nltk.download("wordnet")
 nltk.download("stopwords")
 nltk.download('averaged_perceptron_tagger')
-
 
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk import pos_tag
 from nltk.tokenize import word_tokenize
 
-st.markdown(
-     r"""
-    <style>
-    body {
-        background-image: url("C:\Users\HP\Downloads\fakenews.png");
-        background-size: cover;
-    }
-    </style>
-     """ ,
-    unsafe_allow_html=True
-)
-
-
-
-
-
+# Initialize NLTK's WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
-
-
-
-
 
 # Function to lemmatize and provide POS tags
 def lemmatize_with_pos(text):
@@ -59,66 +33,59 @@ def get_wordnet_pos(tag):
                 "R": nltk.corpus.wordnet.ADV}
     return tag_dict.get(tag, nltk.corpus.wordnet.NOUN)  # Default to noun if not found
 
+# Function for text preprocessing
 def preprocess(article):
-    stop_word = set(stopwords.words('english'))
-    processed_data = []  # Initialize an empty list
-    preprocess_document = word_tokenize(article)
-    preprocess_document = [token.lower() for token in preprocess_document if token.isalnum()]
-    preprocess_document = [token for token in preprocess_document if token not in stop_word]
+    stop_words = set(stopwords.words('english'))
+    preprocess_document = word_tokenize(article.lower())
+    preprocess_document = [token for token in preprocess_document if token.isalnum() and token not in stop_words]
     preprocess_document = lemmatize_with_pos(preprocess_document)
-    return preprocess_document
+    return ' '.join(preprocess_document)
 
-
-
-# In[ ]:
-
-
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.svm import SVC
-from sklearn.metrics import classification_report
-import joblib
-
-print("Test our fake news detection now!")
-article = st.text_area("Enter your article:")
-
-
-# print("\nThere are 2 types of training method:")
-# print("1. SVM")
-# print("2. Naive Bayes")
-# training = input("Choose one of the training method: ")
-
-
-
-# if training == "1":    
+# Load machine learning model and count vectorizer
 model = joblib.load('custom_svm_model(final).pkl')
-#     select_k_best = model.named_steps['feature_selection'] 
 count_vectorizer = joblib.load('vectorizer(final).pkl')
-# else:
-#     model = joblib.load('nb_countvectorizer_model(30_testsize).pkl')
-#     count_vectorizer = joblib.load('countvectorizer.pkl')
 
+# Set page title and background color
+st.set_page_config(page_title="Fake News Detection", page_icon="📰", layout="centered", initial_sidebar_state="collapsed")
 
+# Stylish header
+st.title("Fake News Detection")
+st.markdown("**Enter an article to predict whether it's fake or true.**")
 
-#Apply the preprocessing function to the 'text' column
-if st.button("Predict"):
-  st.write("\nIt is detecting ...")
+# Text input area
+article = st.text_area("Article Text", "", height=200)
+
+# Predict button
+if st.button("Predict", key="predict_button"):
+    st.info("Predicting...")
+
+    # Preprocess the article
+    processed_article = preprocess(article)
     
-  processed_article = preprocess(article)
-  processed_articles = ' '.join(processed_article)
-  new_article_vectorized_count = count_vectorizer.transform([processed_articles])
-  prediction = model.predict(new_article_vectorized_count)
+    # Vectorize the preprocessed article
+    new_article_vectorized_count = count_vectorizer.transform([processed_article])
 
-  if prediction[0] == 1:
-    st.write("The article is predicted as fake.")
-  else:
-    st.write("The article is predicted as true.")
-    
-#20848 - svm cannot, naive can
-#16405 - fake
-#14 (true) - svm and bayes cannot
+    # Make the prediction
+    prediction = model.predict(new_article_vectorized_count)
 
+    # Display the prediction
+    if prediction[0] == 1:
+        st.success("📢 The article is predicted as fake.")
+    else:
+        st.success("📰 The article is predicted as true.")
 
-# nb cannot, svm can
-#The 2014 IRS filings for the Clinton Foundation have been released and the numbers are absolutely sickening. Out of $91.3 million spent in 2014, the organization s IRS filings show that only $5.2 million of that went to actual charity.See the documents here: ViewIt all gets very ugly when you see the numbers broken down.>$34.8 million the foundation spent on salaries, compensation and employee benefits.>$50.4 million recorded as  other expenses >$851K was marked as  professional fundraising expenses. Despite an additional $30 million in 2014, the Clinton Foundation spent 40% less on charitable grants in 2014 than in 2013. Even as it slashed charitable spending, the foundation increased the amount spent on salaries, employee benefits and compensation by $5 million in 2014. The foundation also spent $5 million more  other expenses  in 2014.It is worth noting that Sean Davis at The Federalist stated,  the bulk of the charitable work lauded by the Clinton Foundation s boosters   the distribution of drugs to impoverished people in developing countries   is no longer even performed by the Clinton Foundation. Those activities were spun off in 2010 and are now managed by the Clinton Health Access Initiative, a completely separate non-profit organization. It is absolutely abhorrent that while she claims to do so much for charity one day, then turns around and lauds her wealth over the heads of hard working Americans the next she is continuously stashing donated funds for her own personal purposes.We all know that politicians aren t going to be honest but this is a crime, literally, and yet it is just another day in the lives of the Clintons.Check out this Haiti citizens interview about the Clintons:H/T [ WZ ]
+# Footer
+st.markdown("---")
+st.markdown("Created with ❤️ by Your Name")
 
+# Add a classy background color
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f8f9fa;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
