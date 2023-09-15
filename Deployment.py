@@ -76,14 +76,15 @@ if st.button("Predict", key="predict_button"):
 
 # Footer
 st.markdown("---")
-st.markdown("Created with ❤️ by Your Name")
+st.markdown("Created by ❤️ Tan Yen Yee  & Sharan ")
 
 # Add a classy background color
 st.markdown(
     """
     <style>
     body {
-        background-color: #f8f9fa;
+        background-image: url("C:\Users\HP\Downloads\fakenews.png");
+        background-color: #3d2f91;
     }
     </style>
     """,
