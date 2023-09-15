@@ -2,9 +2,8 @@
 # coding: utf-8
 
 # In[ ]:
-
 import nltk
-from nltk.corpos import stopwords
+nltk.download('stopwords')
 
 def preprocess(article):
     stop_words = set(stopwords.words('english'))
