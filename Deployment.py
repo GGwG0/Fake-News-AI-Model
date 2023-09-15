@@ -8,9 +8,8 @@ import streamlit as st
 import nltk
 import numpy 
 import joblib
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
+nltk.download()
+
 
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
