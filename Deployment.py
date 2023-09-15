@@ -70,10 +70,10 @@ if st.button("Predict", key="predict_button"):
 
     # Display the prediction
    # Display the prediction
-  if prediction[0] == 1:
-   st.success("📢 The article is predicted as fake.")
-  else:
-  st.success("📰 The article is predicted as true.")
+ if prediction[0] == 1:
+    st.success("📢 The article is predicted as fake.")
+ else:
+   st.success("📰 The article is predicted as true.")
 
 
 # Footer
