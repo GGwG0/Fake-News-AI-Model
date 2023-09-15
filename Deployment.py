@@ -8,7 +8,7 @@ import streamlit as st
 import nltk
 import numpy 
 import joblib
-nltk.download('stopwords')
+
 
 
 from nltk.corpus import stopwords
