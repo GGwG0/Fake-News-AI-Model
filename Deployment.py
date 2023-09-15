@@ -3,9 +3,11 @@
 
 # In[ ]:
 
-import nltk
-nltk.download('stopwords')
+python --version
 
+
+from nltk.corpos import stopwords
+nltk.download('stopwords')
 
 def preprocess(article):
     stop_words = set(stopwords.words('english'))
